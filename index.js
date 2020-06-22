@@ -220,7 +220,8 @@ get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/traffic
       const trafficErr = new Discord.MessageEmbed()
       .setColor('#0099ff')
       .setTitle('<:githuberror:719971585716387862> I was not able to get the traffic data.')
-  }
+  message.channel.send(trafficErr)
+    }
 }
 getTrafficData()
 }
