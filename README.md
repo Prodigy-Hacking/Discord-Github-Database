@@ -13,4 +13,6 @@
 ;issues
 ```
 
+## This repository data and correspnding Discord.js program are licensed under the GNU General Public Liscense V3.0.
+
 
