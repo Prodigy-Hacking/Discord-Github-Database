@@ -1,9 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-bot.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const token = require('./token.json')
-const fs = require('fs')
 const credentials = require('./credentials.json')
 const get = require('node-fetch')
 const btoa = require('btoa')
