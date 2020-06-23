@@ -118,7 +118,6 @@ bot.on('message', message => {
                 .addField(';issues', 'This shows all open issues in the repository.', false)
                 .addField(';traffic', 'Shows the amount of views that the Github has had this week.', false)
                 .addField('***NOTE:***', '***Folder urls are case-sensitive. make sure you follow the capitalization EXACTLY as it is shown when you use `;github`.***', false)
-                .setImage('https://cdn.discordapp.com/emojis/719597333129592843.png?v=1')
                 .setTimestamp()
                 .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL);
 
