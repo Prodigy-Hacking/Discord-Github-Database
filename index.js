@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const token = require('./token.json')
 const credentials = require('./credentials.json')
-const get = require('node-fetch')
+const fetch = require('node-fetch')
 const btoa = require('btoa')
 const prefix = "";
 bot.on('ready', () => {
@@ -27,7 +27,7 @@ bot.on('message', message => {
                 try {
                     let filenames = []
                     if (!args[1]) { args[1] = "" }
-                    let gitdata = (await (await get(datalink + '/' + args[1])).text());
+                    let gitdata = (await (await fetch(datalink + '/' + args[1])).text());
                     gitdata = eval(gitdata)
                     let modnums = gitdata["length"]
                     for (let modlogs = 0; modlogs < modnums; modlogs++) {
@@ -61,7 +61,7 @@ bot.on('message', message => {
                 try {
                     let rawname = []
                     if (!args[1]) { args[1] = "" }
-                    let gitdata = (await (await get(datalink + '/' + args[1])).text());
+                    let gitdata = (await (await fetch(datalink + '/' + args[1])).text());
                     gitdata = eval(gitdata)
                     let modnums = gitdata["length"]
 
@@ -118,14 +118,15 @@ bot.on('message', message => {
                 .addField(';issues', 'This shows all open issues in the repository.', false)
                 .addField(';traffic', 'Shows the amount of views that the Github has had this week.', false)
                 .addField('***NOTE:***', '***Folder urls are case-sensitive. make sure you follow the capitalization EXACTLY as it is shown when you use `;github`.***', false)
+                .setImage('https://cdn.discordapp.com/emojis/719597333129592843.png?v=1')
                 .setTimestamp()
                 .setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL);
 
             message.channel.send(helpEmbed);
             break;
         case ';repoinfo':
-            async function getGenData() {
-                let gendata = (await (await get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking')).json());
+            async function fetchGenData() {
+                let gendata = (await (await fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking')).json());
                 const gendataembed = new Discord.MessageEmbed()
                     .setColor('#0099ff')
                     .setTitle('ProdigyMathGameHacking repository - General data.')
@@ -142,11 +143,11 @@ bot.on('message', message => {
                     .addField('License:', gendata.license.name, false)
                     message.channel.send(gendataembed)
             }
-            getGenData()
+            fetchGenData()
             break;
         case ';collaborators':
 async function fetchContData(){
-    let contdata = (await(await get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/contributors')).json());
+    let contdata = (await(await fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/contributors')).json());
     let contnames = []
     let modnums = contdata["length"]
     for (let contlogs = 0; contlogs < modnums; contlogs++) {
@@ -166,7 +167,7 @@ fetchContData()
 break;          
   case ';issues':
       async function fetchIssueData(){
-        let issuedata = (await(await get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/issues')).json());
+        let issuedata = (await(await fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/issues')).json());
         let issuenames = []
         let issuenums = issuedata["length"]
         for (let issuelogs = 0; issuelogs < issuenums; issuelogs++) {
@@ -182,8 +183,8 @@ message.channel.send(issueEmbed)
 fetchIssueData()
 break;
 case ';tags':
-    async function getTagData(){
-        let tagdata = (await(await get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/labels')).json());
+    async function fetchTagData(){
+        let tagdata = (await(await fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/labels')).json());
         let tagnames = []
         let tagnums = tagdata["length"]
         for (let taglogs = 0; taglogs < tagnums; taglogs++) {
@@ -196,12 +197,12 @@ case ';tags':
        .setDescription(finalTagData)
     message.channel.send(tagembed)
     }
-    getTagData()
+    fetchTagData()
     break;
 case ';traffic':
-    async function getTrafficData(){
+    async function fetchTrafficData(){
 try{        let viewdata;
-get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/traffic/views', {
+fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/traffic/views', {
     method: 'GET',
     credentials: 'same-origin',
     headers: {
@@ -218,14 +219,14 @@ get('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/traffic
   }catch{
       const trafficErr = new Discord.MessageEmbed()
       .setColor('#0099ff')
-      .setTitle('<:githuberror:719971585716387862> I was not able to get the traffic data.')
+      .setTitle('<:githuberror:719971585716387862> I was not able to fetch the traffic data.')
   message.channel.send(trafficErr)
     }
 }
-getTrafficData()
-}
-    }
-
+fetchTrafficData()
+break;
+   
+}}
 )
 
 bot.login(token.token);
