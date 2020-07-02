@@ -214,7 +214,7 @@ fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/traff
   setTimeout(function(){const trafficEmbed = new Discord.MessageEmbed()
     .setColor('#0099ff')
     .setTitle('<:githubsuccess:719971373317095547> Here is the current Github traffic.')
-  .setDescription('Total views: `'+viewdata.count+'`. Unique viewers: `'+viewdata.uniques+'`.\n Here is the traffic for today: Total views: `'+viewdata.views[viewdata.views.length-1].count+'`. Unique viewers: `'+ viewdata.views[viewdata.views.length-1].uniques+'`.')    
+  .setDescription('Here is the traffic for this week: `'+viewdata.count+'`. Unique viewers: `'+viewdata.uniques+'`.\n Here is the traffic for today: Total views: `'+viewdata.views[viewdata.views.length-1].count+'`. Unique viewers: `'+ viewdata.views[viewdata.views.length-1].uniques+'`.')    
   message.channel.send(trafficEmbed)},1000)
   }catch{
       const trafficErr = new Discord.MessageEmbed()
