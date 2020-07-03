@@ -106,7 +106,7 @@ bot.on('message', message => {
                 .setColor('#0099ff')
                 .setTitle('ProdigyMathGameHacking')
                 .setURL('https://github.com/Prodigy-Hacking/ProdigyMathGameHacking')
-                .setAuthor('ProdigyMathGameHacking Github Bot help', 'https://github.com/Prodigy-Hacking/ProdigyMathGameHacking')
+                .setAuthor('ProdigyMathGameHacking Github Bot help')
                 .setDescription('This bot allows you to remotely access the ProdigyMathGameHacking Github!')
                 .setThumbnail('https://cdn.discordapp.com/attachments/719578195371884565/719588675851124816/og-image-removebg-preview.png')
                 .addField(';ping', 'Pong!', false)
