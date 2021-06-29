@@ -78,7 +78,7 @@ bot.on('message', message => {
         message.channel.send(pingresponse)
         break;
     case ';help':
-        const helpEmbed = new Discord.MessageEmbed().setColor('#0099ff').setTitle('ProdigyMathGameHacking').setURL('https://github.com/Prodigy-Hacking/ProdigyMathGameHacking').setAuthor('ProdigyMathGameHacking Github Bot help').setDescription('This bot allows you to remotely access the ProdigyMathGameHacking Github!').setThumbnail('https://cdn.discordapp.com/attachments/719578195371884565/719588675851124816/og-image-removebg-preview.png').addField(';ping', 'Pong!', false).addField(';tags', 'This shows the tags we use to organize our issues, such as `Invalid` or `Bug`.', false).addField(';github', 'Shows all the root files in the Github. Add another argument if you want to enter a folder. *Usage - ;github [folder].* Eg: ;github hacks/Misc', false).addField(';files', 'This is like the `;github` command, but instead of showing the file names, it shows the links for the actual code.', false).addField(';repoinfo', 'This gives general info on the Github repository.', false).addField(';collaborators', 'This shows the current people who are working on the Github.', false).addField(';issues', 'This shows all open issues in the repository.', false).addField(';traffic', 'Shows the amount of views that the Github has had this week.', false).addField('***NOTE:***', '***Folder urls are case-sensitive. make sure you follow the capitalization EXACTLY as it is shown when you use `;github`.***', false).setTimestamp().setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL);
+        const helpEmbed = new Discord.MessageEmbed().setColor('#0099ff').setTitle('ProdigyMathGameHacking').setURL('https://github.com/Prodigy-Hacking/ProdigyMathGameHacking').setAuthor('ProdigyMathGameHacking Github Bot help').setDescription('This bot allows you to remotely access the ProdigyMathGameHacking Github!').setThumbnail('https://cdn.discordapp.com/attachments/719578195371884565/719588675851124816/og-image-removebg-preview.png').addField(';ping', 'Pong!', false).addField(';tags', 'This shows the tags we use to organize our issues, such as `Invalid` or `Bug`.', false).addField(';github', 'Shows all the root files in the Github. Add another argument if you want to enter a folder. *Usage - ;github [folder].* Eg: ;github hacks/Misc', false).addField(';files', 'This is like the `;github` command, but instead of showing the file names, it shows the links for the actual code.', false).addField(';repoinfo', 'This gives general info on the Github repository.', false).addField(';contributors', 'This shows the current people who are working on the Github.', false).addField(';issues', 'This shows all open issues in the repository.', false).addField(';traffic', 'Shows the amount of views that the Github has had this week.', false).addField('***NOTE:***', '***Folder urls are case-sensitive. make sure you follow the capitalization EXACTLY as it is shown when you use `;github`.***', false).setTimestamp().setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL);
         message.channel.send(helpEmbed);
         break;
     case ';repoinfo':
@@ -89,7 +89,7 @@ bot.on('message', message => {
         }
         fetchGenData()
         break;
-    case ';collaborators':
+    case ';contributors':
         async function fetchContData() {
             let contdata = (await (await fetch('https://api.github.com/repos/Prodigy-Hacking/ProdigyMathGameHacking/contributors')).json());
             let contnames = []

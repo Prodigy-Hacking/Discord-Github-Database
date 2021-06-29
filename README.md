@@ -9,7 +9,7 @@
 ;repoinfo
 ;traffic
 ;tags
-;collaborators
+;contributors
 ;issues
 ```
 
