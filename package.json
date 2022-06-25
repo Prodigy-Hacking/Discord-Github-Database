@@ -11,6 +11,6 @@
   "dependencies": {
     "btoa": "^1.2.1",
     "discord.js": "^12.2.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }
